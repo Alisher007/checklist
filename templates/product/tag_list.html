@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} <title>Tag list</title> {% endblock %}
+{% block content %}
+
+<div class="container mt-3" >
+<div class="jumbotron text-center ">
+  <form method="GET" action="">
+    <div class="row align-items-center">
+      {% for field in form %}
+        <div class="col">
+          {{ field.label }} <br> {{ field }}
+        </div>
+      {% endfor %}
+    </div> <!-- row -->
+    <div class="row mt-4">
+      <div class="col">
+        <button type="submit" name="submit" class="btn btn-secondary">submit</button>
+      </div>
+    </div>
+    <!-- row -->
+</form>
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">name</th>
+        <th scope="col">add</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object.name }}</td>
+                <td><a href="{% url 'product:tag-add' object.pk product_id %}" class="btn btn-success">add</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'pagination.html' %}
+</div> <!-- container main -->
+
+{% endblock %}

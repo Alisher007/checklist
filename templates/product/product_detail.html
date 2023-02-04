@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} <title>Product detail</title> {% endblock %}
+{% block content %}
+
+
+<div class="site-section">
+    <div class="container">
+
+        <div class="p-3"></div>
+        <h1>Device</h1>
+        <a href="{% url 'product:update' object.pk %}" class="btn btn-success btn-sm m-3">update</a>
+        <div class="p-3"></div>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span style="font-weight: bold;">name:&nbsp;</span> {{object.title}}
+            </li>
+            <li class="list-group-item">
+                <span style="font-weight: bold;">description:&nbsp;</span> {{object.description}}
+            </li>
+            <li class="list-group-item">
+                <span style="font-weight: bold;">active:&nbsp;</span> 
+                {% if object.active %} yes {% else %} no {% endif %}
+            </li>
+            {% if object.category %}
+                <li class="list-group-item">
+                    <span style="font-weight: bold;">category: &nbsp;</span>{{object.category.name}}
+                </li>
+                {% else %}
+                <li class="list-group-item">
+                    <span style="font-weight: bold;">category:&nbsp;</span>none
+                </li>
+            {% endif %}
+            {% if object.tag.all %}
+                <li class="list-group-item">
+                    <span style="font-weight: bold;">tag: &nbsp;</span>
+                    <div class="ml-4 pl-4">
+                        {% for tag in object.tag.all %}
+                        {{tag}}&nbsp;
+                        <a href="{% url 'product:tag-remove' tag.pk object.pk %}" class="btn btn-danger btn-sm m-2">remove</a>
+                        <br>
+                        {% endfor %}
+                        
+                        <a href="{% url 'product:tags' object.pk %}" class="btn btn-success btn-sm m-2">add more</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="list-group-item">
+                    <span style="font-weight: bold;">tag:&nbsp;</span>
+                    <a href="{% url 'product:tags' object.pk %}" class="btn btn-success btn-sm m-2">add new</a>
+                </li>
+            {% endif %}
+            
+        </ul>
+    </div>
+</div>
+
+<script>
+</script>
+{% endblock content %}

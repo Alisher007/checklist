@@ -1,0 +1,49 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="reports-section">
+    <div class="container">
+        <h1>Reports</h1>
+        <form class="row my-3" action="">
+            <div class="form-row">
+                <div class="col-sm">
+                    <input type="text" name="title" class="form-control" placeholder="title" value={{ values.title }}>
+                </div>
+                <div class="col-sm">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="row mb-5">
+            <div class="col-md-9 mb-4">
+                <div class="row mb-5">
+                    {% for product in object_list %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 mb-4" data-aos='fade-up'>
+                            <div class="block-4-text p-4">
+                                <h3>{{ product.user }}</h3>
+                                <p class="mb-0">{{ product.lesson }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="border p-4 rounded mb-4">
+                    <h3 class="h6 text-uppercase text-black">Categories</h3>
+                    <ul>
+                        {% for category in categories %}
+                        <li class="mb-1">
+                            <span>{{ category.name }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!-- reports-section -->
+</div>
+<script src="{% static 'js/jquery-3.5.1.slim.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/htmx.min.js' %}" type="text/javascript"></script>
+{% endblock %}

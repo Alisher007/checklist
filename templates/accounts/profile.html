@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-9 mb-4">
+                <div class="block-4-text p-4">
+                    <h3>Username: {{ object }}</h3>
+                    <a class="btn btn-success" href="{% url 'account_reset_password' %}">Reset password</a>
+                    <hr>
+                    {% if object.image %}
+                        <img src="{{ object.image.url }}" alt="avatar" width="100" height="100">
+                    {% else %}
+                        <div ><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 448 512"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></div>
+                    {% endif %}
+                    <hr>
+                    <a class="btn btn-success" href="{% url 'accounts:profile-update' %}">Change your photo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

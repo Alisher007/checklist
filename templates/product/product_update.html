@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} <title>Product update</title> {% endblock %}
+{% block content %}
+
+<div class="site-section">
+    <div class="container">
+
+        <div class="p-3"></div>
+        <h1 >Update the product</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type='submit' id="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
