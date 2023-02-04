@@ -9,7 +9,7 @@ This is simple inventory list
 * Version
     0.0.1
 
-* [Learn Markdown](https://github.com/Alisher007/checklist)
+* [this project](https://github.com/Alisher007/checklist)
 
 ### Capable ###
 
