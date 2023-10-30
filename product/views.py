@@ -33,7 +33,7 @@ class ProductDetailView(generic.DetailView):
     slug_url_kwarg = 'slug'
 
 ############ Product create view
-class ProductUpdateView(LoginRequiredMixin, generic.CreateView):
+class ProductCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = ProductForm
     template_name = 'product/product_create.html'
 

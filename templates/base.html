@@ -32,13 +32,13 @@
         $('#exampleModal').modal({show:true});
     });
     const td_targets = document.getElementsByClassName("td-targets")
-  for (let index = 0; index < td_targets.length; index++) {
-    const element = td_targets[index];
-      element.addEventListener("click", function() {
-        var tarhref = this.dataset.tarhref
-        location.href=tarhref;
-      });
-  }
+    for (let index = 0; index < td_targets.length; index++) {
+        const element = td_targets[index];
+        element.addEventListener("click", function() {
+            var tarhref = this.dataset.tarhref
+            location.href=tarhref;
+        });
+    }
 </script>
 <style>
     .navbar-nav {
